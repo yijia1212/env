@@ -1,4 +1,9 @@
 .emacs.d/auto-save*
 .emacs.d/elpa*
+.emacs.d/elpa/*
+#*
 *~
 session*
+/.emacs.d/bookmarks
+/.emacs.d/elpa/archives/gnu/archive-contents
+/.emacs.d/#custom_org.el#

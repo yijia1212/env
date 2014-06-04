@@ -13,6 +13,9 @@
 ;;Disable scrollbar
 (scroll-bar-mode -1)
 
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+
 (mapc (lambda (mode)
       (add-hook 'LaTeX-mode-hook mode))
       (list 'auto-fill-mode

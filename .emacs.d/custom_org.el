@@ -33,9 +33,9 @@
 (setq org-default-notes-file "~/org/capture.org")
 
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "~/org/capture.org")
+      (quote (("t" "todo" entry (file "~/Freiheit als Autonomie/org/capture.org")
 	        "* TODO %?\n%U\n%a\n  %i")
-	      ("n" "note" entry (file "~/org/capture.org")
+	      ("n" "note" entry (file "~/Freiheit als Autonomie/org/capture.org")
                "* %? :NOTE:\n%U\n%a\n  %i"))))
 
 (setq org-refile-targets (quote ((nil :maxlevel . 9)

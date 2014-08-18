@@ -5,5 +5,7 @@
 *~
 session*
 /.emacs.d/bookmarks
-/.emacs.d/elpa/archives/gnu/archive-contents
-/.emacs.d/#custom_org.el#
+/.emacs.d/elpa/archives/gnu/archive-content*
+/.emacs.d/el-get-haskell
+/.emacs.d/el-get*
+/.emacs.d/ac-comphist*

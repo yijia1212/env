@@ -13,6 +13,9 @@
 ;;Disable scrollbar
 (scroll-bar-mode -1)
 
+;;magit
+(global-set-key (kbd "<f10>") 'magit-status)
+
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 

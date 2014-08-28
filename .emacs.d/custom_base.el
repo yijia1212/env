@@ -14,6 +14,9 @@
 (scroll-bar-mode -1)
 
 ;;magit
+(eval-after-load "magit" 
+  '(mapc (apply-partially 'add-to-list 'magit-repo-dirs)
+               '("~/Freiheit als Autonomie/org" "~/.env" "~/Workspace"  "~/knowledge_graph")))
 (global-set-key (kbd "<f10>") 'magit-status)
 
 (setq TeX-auto-save t)

@@ -9,6 +9,8 @@
 (color-theme-initialize)
 (color-theme-subtle-hacker)
 
+
+
 ;; Open crypt tool
 (require 'epa-file)
 (epa-file-enable)
@@ -38,5 +40,5 @@
 (el-get-sync-recipes "el-get-haskell")
 (el-get-sync-recipes "el-get-user")
 ;; CUSTOM FILE
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file 'noerror)
+;; (setq custom-file (locate-user-emacs-file "custom.el"))
+;; (load custom-file 'noerror)

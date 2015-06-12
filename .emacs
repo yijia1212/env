@@ -9,7 +9,7 @@
 (color-theme-initialize)
 (color-theme-subtle-hacker)
 
-
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; Open crypt tool
 (require 'epa-file)
@@ -21,24 +21,32 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-(defun el-get-sync-recipes (overlay)
-  (let* ((recipe-glob (locate-user-emacs-file (concat overlay "/recipes/*.rcp")))
-         (recipe-files (file-expand-wildcards recipe-glob))
-         (recipes (mapcar 'el-get-read-recipe-file recipe-files)))
-    (mapcar (lambda (r) (add-to-list 'el-get-sources r)) recipes)
-    (el-get 'sync (mapcar 'el-get-source-name recipes))))
-(setq el-get-user-package-directory user-emacs-directory)
-;; EL-GET SYNC OVERLAYS
-(el-get-sync-recipes "el-get-haskell")
-(el-get-sync-recipes "el-get-user")
-;; CUSTOM FILE
-;; (setq custom-file (locate-user-emacs-file "custom.el"))
-;; (load custom-file 'noerror)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-hi2)
+(eval-after-load 'haskell-mode
+          '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
+(let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
+  (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
+  (add-to-list 'exec-path my-cabal-path))
+
+(custom-set-variables
+  '(haskell-process-suggest-remove-import-lines t)
+  '(haskell-process-auto-import-loaded-modules t)
+  '(haskell-process-log t)
+  '(haskell-tags-on-save t)
+  '(haskell-process-type 'cabal-repl)
+)
+
+(eval-after-load 'haskell-mode '(progn
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
+(eval-after-load 'haskell-cabal '(progn
+  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))

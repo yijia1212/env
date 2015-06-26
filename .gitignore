@@ -9,3 +9,5 @@ session*
 /.emacs.d/el-get-haskell
 /.emacs.d/el-get*
 /.emacs.d/ac-comphist*
+/.emacs.d/sitelisp/emacs-haskell-config/
+/.emacs.d/smex-items

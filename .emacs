@@ -58,3 +58,5 @@
  ;; If there is more than one, they won't work right.
  '(shm-current-face ((t (:background "LemonChiffon4"))))
  '(shm-quarantine-face ((t (:inherit font-lock-error)))))
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)

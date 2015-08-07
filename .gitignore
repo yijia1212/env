@@ -11,3 +11,4 @@ session*
 /.emacs.d/ac-comphist*
 /.emacs.d/sitelisp/emacs-haskell-config/
 /.emacs.d/smex-items
+/.emacs.d/abbrev_defs

@@ -1,0 +1,3 @@
+[submodule ".emacs.d/sitelisp/emacs-haskell-config"]
+	path = .emacs.d/sitelisp/emacs-haskell-config
+	url = https://github.com/chrisdone/emacs-haskell-config.git

@@ -1,0 +1,32 @@
+
+;; ----- smex-history -----
+(
+ magit-pull
+ list-packages
+ shell
+ package-list-packages
+ uncomment-region
+ comment-region
+ indent-region
+)
+
+;; ----- smex-data -----
+(
+ (package-install . 2)
+ (load-theme . 1)
+ (eval-buffer . 2)
+ (customize-face . 2)
+ (shell . 7)
+ (haskell-session-change . 1)
+ (haskell-process-unignore . 2)
+ (describe-variable . 1)
+ (list-packages . 3)
+ (magit-pull . 5)
+ (diff . 2)
+ (indent-region . 2)
+ (comment-region . 1)
+ (uncomment-region . 1)
+ (package-list-packages . 1)
+ (tuareg-run-ocaml . 1)
+ (utop . 3)
+)

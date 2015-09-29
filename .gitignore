@@ -1,6 +1,4 @@
 .emacs.d/auto-save*
-.emacs.d/elpa*
-.emacs.d/elpa/*
 #*
 *~
 session*
@@ -8,7 +6,4 @@ session*
 /.emacs.d/elpa/archives/gnu/archive-content*
 /.emacs.d/el-get-haskell
 /.emacs.d/el-get*
-/.emacs.d/ac-comphist*
-/.emacs.d/sitelisp/emacs-haskell-config/
-/.emacs.d/smex-items
 /.emacs.d/abbrev_defs

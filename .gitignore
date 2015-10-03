@@ -1,4 +1,5 @@
 .emacs.d/auto-save*
+.emacs.d/elpa*
 #*
 *~
 session*
@@ -7,4 +8,4 @@ session*
 /.emacs.d/el-get-haskell
 /.emacs.d/el-get*
 /.emacs.d/abbrev_defs
-/.emacs.d/elpa*
+

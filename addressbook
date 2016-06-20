@@ -1,0 +1,11 @@
+# abook addressbook file
+
+[format]
+program=abook
+version=0.6.0pre2
+
+
+[0]
+name=DiFazio, Danielle
+email=d.difazio@northeastern.edu
+

@@ -1,0 +1,128 @@
+set realname = "Yijia Gu"
+
+set use_from = yes
+set editor = "emacs"
+set mbox_type = maildir
+set folder = "~/.mail/fillbrim"
+set spoolfile = "+Inbox"
+set mbox = "+Mbox"
+set postponed = "+Drafts"
+set record = "+Sent"
+set charset = "utf-8"
+set send_charset = "us-ascii:utf-8"
+set header = no
+set move = ask-yes
+set pager_stop
+
+set sendmail = "/usr/bin/msmtp"
+set from = "guyijia@ccs.neu.edu"
+set envelope_from 
+set askcc
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+
+#attachment
+auto_view text/html
+
+alternative_order text/plain text/html
+# basic colors -------------------------------------------------------
+color normal        white           black
+color error         red             black
+color tilde         white           black
+color message       cyan            black
+color markers       red             black
+color attachment    brightred       black
+color search        brightmagenta   black
+color status        brightwhite     black
+color indicator     white           blue
+color tree          magenta         black   # arrows in threads
+
+# 列表部分 -------------------------------------------------------
+# 高亮不同状态的邮件, 具体的pattern(例如~N)参见mutt manual的4.2节
+
+color index         red             black         "~A"                        # all messages
+color index         brightred       black         "~E"                        # expired messages
+color index         brightcyan      black         "~N"                        # new messages
+color index         brightcyan      black         "~O"                        # old messages
+color index         brightmagenta   black         "~Q"                        # messages that have been replied to
+color index         white           black         "~R"                        # read messages
+color index         brightblue      black         "~U"                        # unread messages
+color index         brightblue      black         "~U~$"                      # unread, unreferenced messages
+color index         brightblue      black         "~v"                        # messages part of a collapsed thread
+color index         brightblue      black         "~P"                        # messages from me
+color index         cyan            black         "~p!~F"                     # messages to me
+color index         brightgreen     black         "~N~p!~F"                   # new messages to me
+color index         brightgreen     black         "~U~p!~F"                   # unread messages to me
+color index         green           black         "~R~p!~F"                   # messages to me
+color index         red             black         "~F"                        # flagged messages
+color index         red             black         "~F~p"                      # flagged messages to me
+color index         red             black         "~N~F"                      # new flagged messages
+color index         red             black         "~N~F~p"                    # new flagged messages to me
+color index         red             black         "~U~F~p"                    # new flagged messages to me
+color index         white           brightmagenta "~D"                        # deleted messages
+color index         white           black         "~v~(!~N!~O)"               # collapsed thread with no unread
+color index         magenta          black         "~v~(~N|~O)"               # collapsed thread with some unread
+color index         magenta           black         "~N~v~(~N)"               # collapsed thread with unread parent
+color index         red             white           "~v~(~F)!~N"              # collapsed thread with flagged, no unread
+color index         yellow          white           "~v~(~F~N)"               # collapsed thread with some unread & flagged
+color index         green           white           "~N~v~(~F~N)"             # collapsed thread with unread parent & flagged
+color index         green           white           "~N~v~(~F)"               # collapsed thread with unread parent, no unread inside, but some flagged
+color index         yellow          red             "~v~(~D)"
+
+# color header        brightcyan      default         "^"
+color hdrdefault    brightblue      black
+color header        brightgreen     black         "^(From)"
+color header        brightyellow    black         "^(Subject)"
+
+# 自定义的patch补丁高亮, 方便查看patch
+color   body     red            black    "^-.*"
+color   body     green          black    "^[+].*"
+color   body     brightwhite    black    "^diff --git.*"
+color   body     brightwhite    black    "^index [a-f0-9].*"
+color   body     brightwhite    black    "^\-\-\- a.*"
+color   body     brightwhite    black    "^[\+]{3} b.*"
+color   body     brightyellow   black    "^@@.*"
+color   body     brightmagenta  black    "^(Signed-off-by).*"
+color   body     brightmagenta  black    "^(Reported-by).*"
+color   body     brightmagenta  black    "^(Suggested-by).*"
+color   body     brightmagenta  black    "^(Acked-by).*"
+color   body     brightmagenta  black    "^(Reviewed-by).*"
+color   body     brightmagenta  black    "^\-\-\-$"
+# color   body     brightmagenta  black    "^(Cc).*"
+# color   body     brightmagenta  black    "^(CC).*"
+color   body     white          black    "^( \#define).*"
+color   body     white          black    "^( \#include).*"
+color   body     white          black    "^( \#if).*"
+color   body     white          black    "^( \#el).*"
+color   body     white          black    "^( \#endif).*"
+
+# optional highlightling
+color   body    green           black    "LGTM"
+color   body    brightmagenta   black    "-- Commit Summary --"
+color   body    brightmagenta   black    "-- File Changes --"
+color   body    brightmagenta   black    "-- Patch Links --"
+color   body    green           black    "^Merged #.*"
+color   body    red             black    "^Closed #.*"
+color   body    brightblue      black    "^Reply to this email.*"
+
+
+# 引文起始符号设置
+# set quote_regexp = "^([ ]t]*[|>:}#])+"
+set quote_regexp = "^([ \t]*[>])+"
+
+# 嵌套引文不同层的颜色
+color quoted        blue            black
+color quoted1       magenta         black
+color quoted2       cyan            black
+color quoted3       yellow          black
+color quoted4       red             black
+
+macro index o "<shell-escape>mbsync fillbrim<enter><shell-escape>notmuch new<enter>"           "run offlineimap to sync all mail"
+
+set query_command= "abook --mutt-query '%s'"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"

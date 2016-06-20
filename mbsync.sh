@@ -1,0 +1,1 @@
+mbsync fillbrim && notmuch new

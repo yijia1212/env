@@ -19,12 +19,16 @@
        ("/Sent"   . ?s)
        ("/Trash"       . ?t)
        ("/Mbox"    . ?m)
-       ("/BCBSG"   . ?b)
        ("/Promotion" . ?p)
-       ("/Newsletter" . ?n)
        ("/Mailist"    . ?l)
-       ("/Finance"    . ?f)
        ))
+
+(setq mu4e-refile-folder
+  (lambda (msg)
+    (cond
+      ;; everything else goes to /archive
+      ;; important to have a catch-all at the end!
+      (t  "/Mbox"))))
 
 
 (setq mu4e-headers-fields
@@ -103,3 +107,7 @@
                          ((mu4e-message-contact-field-matches msg :to "guyijia@gmail.com")
                           "guyijia@guyijia.com")
                          (t "guyijia@fillbrim.com")))))))
+
+(add-to-list 'mu4e-bookmarks
+  '("subject:BCBSG* OR bcbsg"
+     "BCBSG" ?b))

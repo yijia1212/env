@@ -3,7 +3,7 @@
 (load-file "~/.emacs.d/sitelisp/ProofGeneral-4.2/generic/proof-site.el")
 (require 'custom_base)
 (require 'custom_org)
-
+(require 'mu4erc)
 ;; Customize Color theme
 ;;(require 'color-theme)
 ;;(color-theme-initialize)
@@ -66,12 +66,12 @@
 (setq org-latex-pdf-process '("latexmk -pdf -bibtex %f"))
 
 (setq reftex-default-bibliography
-  '("/home/yijia/Workspace/fpa-heterogeneous/reduction-order/bibliography/main.bib"))
+  '("/home/yijia/Workspace/fpa-heterogeneous/reduction-order/bibliography/main.bib" "/home/fwibstwia/Workspace/java/fpa-heterogeneous/reduction-order/bibliography/main.bib"))
 
 (setq reftex-bibpath-environment-variables
-  '("/home/yijia/Workspace/fpa-heterogeneous/reduction-order/bibliography/"))
+  '("/home/yijia/Workspace/fpa-heterogeneous/reduction-order/bibliography/" "/home/fwibstwia/Workspace/java/fpa-heterogeneous/reduction-order/bibliography/"))
 
-(setq reftex-default-bibliography '("/home/yijia/Workspace/fpa-heterogeneous/reduction-order/bibliography/main.bib"))
+(setq reftex-default-bibliography '("/home/yijia/Workspace/fpa-heterogeneous/reduction-order/bibliography/main.bib" "/home/fwibstwia/Workspace/java/fpa-heterogeneous/reduction-order/bibliography/main.bib"))
 (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 
 (setq reftex-default-bibliography

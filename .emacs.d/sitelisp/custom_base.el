@@ -1,7 +1,7 @@
 (provide 'custom_base)
 ;;Set default browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium-browser")
+      browse-url-generic-program "firefox")
 ;;Set spell check
 (setq-default ispell-program-name "aspell")
 ;;Hide the menu bar

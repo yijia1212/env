@@ -2,6 +2,8 @@
 (require 'mu4e)
 (require 'org-mu4e)
 
+(global-set-key (kbd "<f9>") 'mu4e)
+
 (add-to-list 'mu4e-view-actions
 	     '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
@@ -9,6 +11,8 @@
 (setq mu4e-drafts-folder "/Drafts")
 (setq mu4e-sent-folder "/Sent")
 (setq mu4e-trash-folder "/Trash")
+
+(setq mu4e-change-filenames-when-moving t)
 
 (setq mu4e-sent-messages-behavior 'delete)
 
@@ -68,8 +72,14 @@
 
 (setq mu4e-confirm-quit nil
       mu4e-headers-date-format "%d/%b/%Y %H:%M" ; date format
-      mu4e-html2text-command "html2text -utf8 -width 72"
+
       )
+
+(setq mu4e-view-prefer-html nil)
+(require 'mu4e-contrib)
+(setq mu4e-html2text-command 'mu4e-shr2text
+      shr-color-visible-luminance-min 80
+      shr-color-visible-distance-min 5)
 
 ;; Borrowed from http://ionrock.org/emacs-email-and-mu.html
 ;; Choose account label to feed msmtp -a option based on From header
@@ -109,5 +119,5 @@
                          (t "guyijia@fillbrim.com")))))))
 
 (add-to-list 'mu4e-bookmarks
-  '("subject:BCBSG* OR bcbsg"
+  '("(subject:BCBSG* OR bcbsg*) OR (from:lilaknju@gmail.com OR cassiopeiaelu01@gmail.com OR mingsang@alum.mit.edu OR chen.linflyer@gmail.com OR tony_zh@yahoo.com OR fangnl@yahoo.com)"
      "BCBSG" ?b))

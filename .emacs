@@ -1,4 +1,4 @@
-;; Load my configuration file
+;; Load my configuration files
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/sitelisp"))
 (load-file "~/.emacs.d/sitelisp/ProofGeneral-4.2/generic/proof-site.el")
 (require 'custom_base)
@@ -8,7 +8,6 @@
 ;;(require 'color-theme)
 ;;(color-theme-initialize)
 ;;(color-theme-subtle-hacker)
-
 
 
 ;; Open crypt tool
